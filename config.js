@@ -1,0 +1,1 @@
+export const MONGO_URL = "mongodb+srv://admin:admin@quotespro.ho2moss.mongodb.net/quotespro"

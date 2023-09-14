@@ -1,0 +1,82 @@
+query userData{
+  users{
+    _id
+    firstName
+  }
+}
+
+query getAllQuotes{
+  quotes{
+    name
+    by
+  }
+}
+
+query userDataWithQutes {
+  users {
+    _id
+    firstName
+    quotes {
+      by
+      name
+    }
+  }
+}
+
+query userDataById {
+  user(_id:23131) {
+    _id
+    firstName
+    quotes {
+      by
+      name
+    }
+  }
+}
+
+query quoteById {
+  quote(by:23131) {
+    name
+  }
+}
+
+
+query userDataById($userId: ID!) {
+  user(_id: $userId) {
+    _id
+    firstName
+    quotes {
+      by
+      name
+    }
+  }
+}
+-----------------------------------------------------
+mutation($fn: String!, $ln: String!, $em: String!, $ps: String!) {
+  createUserDummy(firstName: $fn, lastName: $ln, email: $em, password: $ps) {
+    _id
+    firstName
+    lastName
+    email
+  }
+}
+
+mutation($userDetails: userInputs!) {
+  createUserDummy(userNew: $userDetails) {
+    _id
+    firstName
+    lastName
+    email
+  }
+}
+
+        {
+          "userDetails": {
+            "firstName": "Harsh",
+            "lastName": "Bhadwa",
+            "email": "h@b.com",
+            "password": "12345"
+          }
+        }
+
+--------------------------------------------------------------------
